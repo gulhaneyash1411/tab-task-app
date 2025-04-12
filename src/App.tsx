@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Tabs from './components/Tabs';
+import Tab1 from './components/Tab1';
+import Tab2 from './components/Tab2';
+import Tab3 from './components/Tab3';
 
-function App() {
+const App = () => {
+  const [activeTab, setActiveTab] = useState<number>(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mt-4">
+      <Tabs activeTab={activeTab} onChangeTab={setActiveTab}>
+        {[<Tab1 />, <Tab2 onNavigate={() => setActiveTab(2)} />, <Tab3 />]}
+      </Tabs>
     </div>
   );
-}
+};
 
 export default App;

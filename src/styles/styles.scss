@@ -1,0 +1,10 @@
+.tabs-wrapper {
+    .nav-tabs .nav-link {
+      cursor: pointer;
+      &.active {
+        font-weight: bold;
+        color: #0d6efd;
+      }
+    }
+  }
+  
